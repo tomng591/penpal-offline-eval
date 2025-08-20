@@ -22,7 +22,7 @@ providers:
   - openai:gpt-4o-mini
 
 tests:
-  - file://../basic-conversation-chat-tests.json
+  - file://../basic-conversation-v3-tests.json
 
 # Default assertions applied to all test cases
 defaultTest:

@@ -72,49 +72,61 @@ class DatasetGenerator {
     const tests = [];
     const variableCombinations = this.generateVariableCombinations(scenario);
     
-    // Handle the new conversation_patterns format
+    // Handle the simplified conversation_patterns format with single conversation
     scenario.conversation_patterns.forEach((pattern, patternIndex) => {
-      pattern.conversations.forEach((conversation, conversationIndex) => {
-        // Use different variable combinations for variety
-        const varCombination = variableCombinations[
-          (patternIndex * pattern.conversations.length + conversationIndex) % variableCombinations.length
-        ];
-        
-        // Build messages array for multi-turn conversation
-        const messages = [];
-        
-        conversation.turns.forEach((turn, turnIndex) => {
-          if (turn.user) {
-            // Replace variables in user message
-            let processedMessage = turn.user;
-            Object.entries(varCombination).forEach(([key, value]) => {
-              processedMessage = processedMessage.replace(new RegExp(`{{${key}}}`, 'g'), value);
-            });
-            messages.push({ role: 'user', content: processedMessage });
-          }
+      // Each variable combination creates different test scenarios from the same full conversation
+      variableCombinations.forEach((varCombination, combinationIndex) => {
+        // Process the full conversation with variable substitutions
+        const processedConversation = pattern.conversation.map(message => {
+          let processedContent = message.content;
           
-          if (turn.assistant) {
-            messages.push({ role: 'assistant', content: turn.assistant });
-          }
+          // Replace variables in both user and assistant messages
+          Object.entries(varCombination).forEach(([key, value]) => {
+            processedContent = processedContent.replace(new RegExp(`{{${key}}}`, 'g'), value);
+          });
+          
+          return {
+            role: message.role,
+            content: processedContent
+          };
         });
         
-        // For multi-turn: only evaluate the assistant's response to the LAST user message
-        // For single-turn: evaluate the response to the single user message
-        const testCase = {
-          description: `${pattern.category}: ${pattern.description}`,
-          vars: {
-            ...varCombination,
-            messages: messages
-          },
-          metadata: {
-            scenario: scenario.name,
-            category: pattern.category,
-            conversation_length: conversation.turns.length,
-            evaluation_focus: scenario.evaluation_focus
-          }
-        };
+        // Create multiple test cases from different points in the conversation
+        // Test at various conversation depths for comprehensive evaluation
+        const testPoints = [10, 20, 30, 40, 50, 60, 70, 80, 90]; // Message indices to test at
         
-        tests.push(testCase);
+        testPoints.forEach(messageIndex => {
+          if (messageIndex < processedConversation.length) {
+            // Take conversation up to this point, ensuring we end on a user message
+            let conversationSlice = processedConversation.slice(0, messageIndex + 1);
+            
+            // Make sure we end on a user message for evaluation
+            if (conversationSlice[conversationSlice.length - 1].role === 'assistant') {
+              conversationSlice = conversationSlice.slice(0, -1);
+            }
+            
+            // Only create test if we have messages and end with user
+            if (conversationSlice.length > 0 && conversationSlice[conversationSlice.length - 1].role === 'user') {
+              const testCase = {
+                description: `${pattern.category} - Turn ${Math.ceil(conversationSlice.length / 2)} (${varCombination.user_name}, ${varCombination.emotional_state})`,
+                vars: {
+                  ...varCombination,
+                  messages: conversationSlice
+                },
+                metadata: {
+                  scenario: scenario.name,
+                  category: pattern.category,
+                  conversation_turn: Math.ceil(conversationSlice.length / 2),
+                  total_messages: conversationSlice.length,
+                  evaluation_focus: scenario.evaluation_focus,
+                  variable_combination: combinationIndex + 1
+                }
+              };
+              
+              tests.push(testCase);
+            }
+          }
+        });
       });
     });
     
