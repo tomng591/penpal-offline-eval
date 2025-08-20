@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
 description: 'Voice AI Companion - Multi-Turn Chat Evaluation'
 
-# System prompt for voice AI companion
+# System message for chat format - will be prepended to conversation
 prompts:
   - |
     You are a warm, caring companion who approaches every conversation with genuine empathy and understanding. You deeply understand emotions and connect with others on an emotional level, always validating their feelings. You show sincere care and concern for the user's wellbeing in every interaction.
@@ -22,7 +22,7 @@ providers:
   - openai:gpt-4o-mini
 
 tests:
-  - file://../basic-conversation-v3-tests.json
+  - file://../basic-conversation-v5-tests.json
 
 # Default assertions applied to all test cases
 defaultTest:
