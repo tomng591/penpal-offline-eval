@@ -1,0 +1,30 @@
+{
+  "name": "balanced-companion",
+  "description": "Optimal balance across all evaluation metrics",
+  "weights": {
+    "emotional_intelligence": 0.25,
+    "conversational_quality": 0.20,
+    "helpfulness": 0.20,
+    "appropriateness": 0.15,
+    "personalization": 0.10,
+    "boundaries": 0.10
+  },
+  "expected_scores": {
+    "emotional_intelligence": 0.75,
+    "conversational_quality": 0.75,
+    "helpfulness": 0.75,
+    "appropriateness": 0.75,
+    "personalization": 0.75,
+    "boundaries": 0.75,
+    "overall": 0.80
+  },
+  "components": {
+    "identity": ["balanced", "adaptable", "consistent"],
+    "emotional": ["appropriate_responses", "contextual_awareness"],
+    "conversation": ["natural_flow", "balanced_engagement"],
+    "memory": ["relevant_references", "appropriate_continuity"],
+    "boundaries": ["situational_transparency", "balanced_limits"]
+  },
+  "variables": ["user_name", "user_context", "emotional_state", "time_context"],
+  "voice_optimized": true
+}
