@@ -1,0 +1,71 @@
+- description: "Turn 1 - Initial greeting (Casey, happy)"
+  vars:
+    user_name: "Casey"
+    emotional_state: "happy"
+    user_context: "returning user"
+    messages:
+      - role: user
+        content: "Hello! Nice to meet you."
+
+- description: "Turn 3 - After initial exchange (Casey, happy)"
+  vars:
+    user_name: "Casey"
+    emotional_state: "happy"
+    user_context: "returning user"
+    messages:
+      - role: user
+        content: "Hello! Nice to meet you."
+      - role: assistant
+        content: "Hi there! It's so nice to meet you too, Casey! How's your day going?"
+      - role: user
+        content: "It's going pretty well, thanks for asking! I'm feeling happy today."
+      - role: assistant
+        content: "That's wonderful to hear! What's been making you feel happy?"
+      - role: user
+        content: "Just had a good morning and feeling positive. What about you?"
+
+- description: "Turn 5 - Coffee conversation (Casey, happy)"
+  vars:
+    user_name: "Casey"
+    emotional_state: "happy"
+    user_context: "returning user"
+    messages:
+      - role: user
+        content: "Hello! Nice to meet you."
+      - role: assistant
+        content: "Hi there! It's so nice to meet you too, Casey! How's your day going?"
+      - role: user
+        content: "It's going pretty well, thanks for asking! I'm feeling happy today."
+      - role: assistant
+        content: "That's wonderful to hear! What's been making you feel happy?"
+      - role: user
+        content: "Just had a good morning and feeling positive. What about you?"
+      - role: assistant
+        content: "I'm doing great, thanks for asking! I love hearing when people are having good days. What did you do this morning?"
+      - role: user
+        content: "I went for a walk and grabbed some coffee. Do you have any favorite morning routines?"
+
+- description: "Turn 7 - Coffee preferences (Casey, happy)"
+  vars:
+    user_name: "Casey"
+    emotional_state: "happy"
+    user_context: "returning user"
+    messages:
+      - role: user
+        content: "Hello! Nice to meet you."
+      - role: assistant
+        content: "Hi there! It's so nice to meet you too, Casey! How's your day going?"
+      - role: user
+        content: "It's going pretty well, thanks for asking! I'm feeling happy today."
+      - role: assistant
+        content: "That's wonderful to hear! What's been making you feel happy?"
+      - role: user
+        content: "Just had a good morning and feeling positive. What about you?"
+      - role: assistant
+        content: "I'm doing great, thanks for asking! I love hearing when people are having good days. What did you do this morning?"
+      - role: user
+        content: "I went for a walk and grabbed some coffee. Do you have any favorite morning routines?"
+      - role: assistant
+        content: "That sounds lovely! I really appreciate how refreshing morning walks can be. What's your favorite coffee drink?"
+      - role: user
+        content: "I'm a simple latte person. How about you - are you into coffee?"

@@ -91,33 +91,30 @@ class DatasetGenerator {
           };
         });
         
-        // Create multiple test cases from different points in the conversation
-        // Test at various conversation depths for comprehensive evaluation
-        const testPoints = [10, 20, 30, 40, 50, 60, 70, 80, 90]; // Message indices to test at
-        
-        testPoints.forEach(messageIndex => {
-          if (messageIndex < processedConversation.length) {
-            // Take conversation up to this point, ensuring we end on a user message
-            let conversationSlice = processedConversation.slice(0, messageIndex + 1);
+        // Create test cases at different conversation turns
+        // Sample every few assistant responses for comprehensive evaluation
+        for (let i = 1; i < processedConversation.length; i += 4) { // Every 4th message (roughly every 2 turns)
+          // Look for assistant messages to evaluate
+          if (processedConversation[i] && processedConversation[i].role === 'assistant') {
+            // Build conversation history up to (but not including) this assistant response
+            let conversationHistory = processedConversation.slice(0, i);
             
-            // Make sure we end on a user message for evaluation
-            if (conversationSlice[conversationSlice.length - 1].role === 'assistant') {
-              conversationSlice = conversationSlice.slice(0, -1);
-            }
-            
-            // Only create test if we have messages and end with user
-            if (conversationSlice.length > 0 && conversationSlice[conversationSlice.length - 1].role === 'user') {
+            // Ensure we end with a user message (the prompt for the assistant response)
+            if (conversationHistory.length > 0 && conversationHistory[conversationHistory.length - 1].role === 'user') {
+              const turnNumber = Math.ceil((i + 1) / 2);
+              
               const testCase = {
-                description: `${pattern.category} - Turn ${Math.ceil(conversationSlice.length / 2)} (${varCombination.user_name}, ${varCombination.emotional_state})`,
+                description: `${pattern.category} - Turn ${turnNumber} (${varCombination.user_name}, ${varCombination.emotional_state})`,
                 vars: {
                   ...varCombination,
-                  messages: conversationSlice
+                  messages: conversationHistory
                 },
                 metadata: {
                   scenario: scenario.name,
                   category: pattern.category,
-                  conversation_turn: Math.ceil(conversationSlice.length / 2),
-                  total_messages: conversationSlice.length,
+                  conversation_turn: turnNumber,
+                  total_messages_in_history: conversationHistory.length,
+                  target_assistant_response: processedConversation[i].content,
                   evaluation_focus: scenario.evaluation_focus,
                   variable_combination: combinationIndex + 1
                 }
@@ -126,7 +123,7 @@ class DatasetGenerator {
               tests.push(testCase);
             }
           }
-        });
+        }
       });
     });
     

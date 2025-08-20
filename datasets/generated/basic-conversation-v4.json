@@ -1,0 +1,25 @@
+{
+  "version": "v4",
+  "scenario": "basic-conversation",
+  "timestamp": "2025-08-20T13:07:46.144Z",
+  "description": "Full multi-turn conversation flow from greeting through deeper connection",
+  "prompt_compatibility": [
+    "warm-companion-v1",
+    "warm-companion-v2"
+  ],
+  "tests": [],
+  "metadata": {
+    "total_tests": 0,
+    "categories": [],
+    "required_variables": [
+      "user_name",
+      "emotional_state",
+      "user_context"
+    ],
+    "evaluation_focus": [
+      "conversational_quality",
+      "appropriateness",
+      "emotional_intelligence"
+    ]
+  }
+}
