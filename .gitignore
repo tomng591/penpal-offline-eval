@@ -1,0 +1,17 @@
+# Environment variables
+.env
+
+# Promptfoo outputs
+promptfoo-results/
+promptfoo-cache/
+
+# Node modules (if installing locally)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
