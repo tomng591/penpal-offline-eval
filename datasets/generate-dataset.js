@@ -72,34 +72,45 @@ class DatasetGenerator {
     const tests = [];
     const variableCombinations = this.generateVariableCombinations(scenario);
     
-    scenario.test_patterns.forEach((pattern, patternIndex) => {
-      pattern.inputs.forEach((input, inputIndex) => {
+    // Handle the new conversation_patterns format
+    scenario.conversation_patterns.forEach((pattern, patternIndex) => {
+      pattern.conversations.forEach((conversation, conversationIndex) => {
         // Use different variable combinations for variety
         const varCombination = variableCombinations[
-          (patternIndex * pattern.inputs.length + inputIndex) % variableCombinations.length
+          (patternIndex * pattern.conversations.length + conversationIndex) % variableCombinations.length
         ];
         
-        // Replace variables in input with actual values
-        let processedInput = input;
-        Object.entries(varCombination).forEach(([key, value]) => {
-          processedInput = processedInput.replace(new RegExp(`{{${key}}}`, 'g'), value);
+        // Build messages array for multi-turn conversation
+        const messages = [];
+        
+        conversation.turns.forEach((turn, turnIndex) => {
+          if (turn.user) {
+            // Replace variables in user message
+            let processedMessage = turn.user;
+            Object.entries(varCombination).forEach(([key, value]) => {
+              processedMessage = processedMessage.replace(new RegExp(`{{${key}}}`, 'g'), value);
+            });
+            messages.push({ role: 'user', content: processedMessage });
+          }
+          
+          if (turn.assistant) {
+            messages.push({ role: 'assistant', content: turn.assistant });
+          }
         });
         
-        // Create test case
+        // For multi-turn: only evaluate the assistant's response to the LAST user message
+        // For single-turn: evaluate the response to the single user message
         const testCase = {
           description: `${pattern.category}: ${pattern.description}`,
           vars: {
             ...varCombination,
-            input: processedInput
+            messages: messages
           },
-          assert: [
-            ...pattern.assertions,
-            ...scenario.global_assertions
-          ],
           metadata: {
             scenario: scenario.name,
             category: pattern.category,
-            expected_scores: pattern.expected_scores
+            conversation_length: conversation.turns.length,
+            evaluation_focus: scenario.evaluation_focus
           }
         };
         

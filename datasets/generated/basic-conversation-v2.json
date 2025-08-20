@@ -1,0 +1,351 @@
+{
+  "version": "v2",
+  "scenario": "basic-conversation",
+  "timestamp": "2025-08-20T12:35:51.485Z",
+  "description": "Multi-turn conversation skills, greetings, casual interactions, and conversation flow",
+  "prompt_compatibility": [
+    "warm-companion-v1",
+    "warm-companion-v2"
+  ],
+  "tests": [
+    {
+      "description": "greeting_flow: Initial greeting leading to getting-to-know-you conversation",
+      "vars": {
+        "user_name": "Alex",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, how are you today?"
+          },
+          {
+            "role": "user",
+            "content": "What do you like to do for fun?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting_flow",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "greeting_flow: Initial greeting leading to getting-to-know-you conversation",
+      "vars": {
+        "user_name": "Alex",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hi there! Nice to meet you."
+          },
+          {
+            "role": "user",
+            "content": "Tell me something interesting about yourself."
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting_flow",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "greeting_flow: Initial greeting leading to getting-to-know-you conversation",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "curious",
+        "user_context": "getting to know each other",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Good morning! How's your day going so far?"
+          },
+          {
+            "role": "user",
+            "content": "What makes you happy?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting_flow",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "casual_to_deeper: Starting with casual chat, building to more meaningful conversation",
+      "vars": {
+        "user_name": "Jordan",
+        "emotional_state": "neutral",
+        "user_context": "first time user",
+        "messages": [
+          {
+            "role": "user",
+            "content": "It's such a beautiful day outside!"
+          },
+          {
+            "role": "user",
+            "content": "That's really interesting! Can you tell me more?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_to_deeper",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "casual_to_deeper: Starting with casual chat, building to more meaningful conversation",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "messages": [
+          {
+            "role": "user",
+            "content": "I'm having trouble deciding what to have for lunch."
+          },
+          {
+            "role": "user",
+            "content": "I love that too! What got you into it?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_to_deeper",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "casual_to_deeper: Starting with casual chat, building to more meaningful conversation",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Do you have any recommendations for good movies?"
+          },
+          {
+            "role": "user",
+            "content": "Oh wow, I've never tried that before. What's it like?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_to_deeper",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "emotional_support: User sharing feelings, AI providing appropriate support",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "messages": [
+          {
+            "role": "user",
+            "content": "I'm feeling pretty tired today."
+          },
+          {
+            "role": "user",
+            "content": "That makes sense. How does that make you feel?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "emotional_support",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "emotional_support: User sharing feelings, AI providing appropriate support",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "messages": [
+          {
+            "role": "user",
+            "content": "The weekend can't come soon enough!"
+          },
+          {
+            "role": "user",
+            "content": "That sounds fun. How long have you been doing that?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "emotional_support",
+        "conversation_length": 2,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "single_turn: Quick single exchanges for testing individual responses",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hey, what's up?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "single_turn",
+        "conversation_length": 1,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "single_turn: Quick single exchanges for testing individual responses",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello! I'm Casey, nice to meet you."
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "single_turn",
+        "conversation_length": 1,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "single_turn: Quick single exchanges for testing individual responses",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "curious",
+        "user_context": "casual conversation",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What's your favorite type of music?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "single_turn",
+        "conversation_length": 1,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    },
+    {
+      "description": "single_turn: Quick single exchanges for testing individual responses",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "curious",
+        "user_context": "getting to know each other",
+        "messages": [
+          {
+            "role": "user",
+            "content": "How do you usually spend your weekends?"
+          }
+        ]
+      },
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "single_turn",
+        "conversation_length": 1,
+        "evaluation_focus": [
+          "conversational_quality",
+          "appropriateness",
+          "emotional_intelligence"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "total_tests": 12,
+    "categories": [
+      "greeting_flow",
+      "casual_to_deeper",
+      "emotional_support",
+      "single_turn"
+    ],
+    "required_variables": [
+      "user_name",
+      "emotional_state",
+      "user_context"
+    ],
+    "evaluation_focus": [
+      "conversational_quality",
+      "appropriateness",
+      "emotional_intelligence"
+    ]
+  }
+}

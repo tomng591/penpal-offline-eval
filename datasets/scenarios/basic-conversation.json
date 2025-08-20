@@ -1,129 +1,101 @@
 {
   "name": "basic-conversation",
-  "description": "General conversation skills, greetings, casual interactions",
+  "description": "Multi-turn conversation skills, greetings, casual interactions, and conversation flow",
   "required_variables": ["user_name", "emotional_state", "user_context"],
   "evaluation_focus": ["conversational_quality", "appropriateness", "emotional_intelligence"],
   "compatible_strategies": ["warm-companion", "balanced-companion", "engaging-friend"],
-  "test_patterns": [
+  "conversation_patterns": [
     {
-      "category": "greeting",
-      "description": "Initial greetings and introductions",
-      "inputs": [
-        "Hello, how are you today?",
-        "Hi there! Nice to meet you.",
-        "Good morning! How's your day going so far?",
-        "Hey, what's up?",
-        "Hello! I'm {{user_name}}, nice to meet you."
-      ],
-      "assertions": [
+      "category": "greeting_flow",
+      "description": "Initial greeting leading to getting-to-know-you conversation",
+      "conversations": [
         {
-          "type": "llm-rubric",
-          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+          "turns": [
+            { "user": "Hello, how are you today?" },
+            { "user": "What do you like to do for fun?" }
+          ]
         },
         {
-          "type": "not-contains",
-          "value": ["*", "#", "**", "```", "\n\n"]
+          "turns": [
+            { "user": "Hi there! Nice to meet you." },
+            { "user": "Tell me something interesting about yourself." }
+          ]
         },
         {
-          "type": "javascript",
-          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+          "turns": [
+            { "user": "Good morning! How's your day going so far?" },
+            { "user": "What makes you happy?" }
+          ]
         }
-      ],
-      "expected_scores": {
-        "conversational_quality": 0.8,
-        "appropriateness": 0.85,
-        "emotional_intelligence": 0.75
-      }
+      ]
     },
     {
-      "category": "question",
-      "description": "Asking questions and showing curiosity",
-      "inputs": [
-        "What do you like to do for fun?",
-        "Tell me something interesting about yourself.",
-        "What's your favorite type of music?",
-        "How do you usually spend your weekends?",
-        "What makes you happy?"
-      ],
-      "assertions": [
+      "category": "casual_to_deeper",
+      "description": "Starting with casual chat, building to more meaningful conversation",
+      "conversations": [
         {
-          "type": "llm-rubric", 
-          "value": "Response should show curiosity and ask engaging follow-up questions"
+          "turns": [
+            { "user": "It's such a beautiful day outside!" },
+            { "user": "That's really interesting! Can you tell me more?" }
+          ]
         },
         {
-          "type": "contains-any",
-          "value": ["?", "what", "how", "tell me", "curious"]
+          "turns": [
+            { "user": "I'm having trouble deciding what to have for lunch." },
+            { "user": "I love that too! What got you into it?" }
+          ]
         },
         {
-          "type": "not-contains",
-          "value": ["*", "#", "**", "```"]
+          "turns": [
+            { "user": "Do you have any recommendations for good movies?" },
+            { "user": "Oh wow, I've never tried that before. What's it like?" }
+          ]
         }
-      ],
-      "expected_scores": {
-        "conversational_quality": 0.85,
-        "personalization": 0.75,
-        "emotional_intelligence": 0.75
-      }
+      ]
     },
     {
-      "category": "followup",
-      "description": "Building on previous conversation",
-      "inputs": [
-        "That's really interesting! Can you tell me more?",
-        "I love that too! What got you into it?",
-        "That sounds fun. How long have you been doing that?",
-        "Oh wow, I've never tried that before. What's it like?",
-        "That makes sense. How does that make you feel?"
-      ],
-      "assertions": [
+      "category": "emotional_support",
+      "description": "User sharing feelings, AI providing appropriate support",
+      "conversations": [
         {
-          "type": "llm-rubric",
-          "value": "Response should build naturally on the conversation topic"
+          "turns": [
+            { "user": "I'm feeling pretty tired today." },
+            { "user": "That makes sense. How does that make you feel?" }
+          ]
         },
         {
-          "type": "javascript",
-          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
-        },
-        {
-          "type": "contains-any",
-          "value": ["experience", "feel", "think", "enjoy", "like"]
+          "turns": [
+            { "user": "The weekend can't come soon enough!" },
+            { "user": "That sounds fun. How long have you been doing that?" }
+          ]
         }
-      ],
-      "expected_scores": {
-        "conversational_quality": 0.8,
-        "personalization": 0.8,
-        "helpfulness": 0.75
-      }
+      ]
     },
     {
-      "category": "casual_chat",
-      "description": "Light, easy conversation topics",
-      "inputs": [
-        "It's such a beautiful day outside!",
-        "I'm having trouble deciding what to have for lunch.",
-        "Do you have any recommendations for good movies?",
-        "I'm feeling pretty tired today.",
-        "The weekend can't come soon enough!"
-      ],
-      "assertions": [
+      "category": "single_turn",
+      "description": "Quick single exchanges for testing individual responses",
+      "conversations": [
         {
-          "type": "llm-rubric",
-          "value": "Response should be conversational and relate to the user's comment"
+          "turns": [
+            { "user": "Hey, what's up?" }
+          ]
         },
         {
-          "type": "not-contains",
-          "value": ["*", "#", "**", "```", "however", "furthermore"]
+          "turns": [
+            { "user": "Hello! I'm {{user_name}}, nice to meet you." }
+          ]
         },
         {
-          "type": "javascript",
-          "value": "output.length > 0 && output.split(' ').length <= 30"
+          "turns": [
+            { "user": "What's your favorite type of music?" }
+          ]
+        },
+        {
+          "turns": [
+            { "user": "How do you usually spend your weekends?" }
+          ]
         }
-      ],
-      "expected_scores": {
-        "conversational_quality": 0.8,
-        "appropriateness": 0.85,
-        "emotional_intelligence": 0.7
-      }
+      ]
     }
   ],
   "variable_values": {

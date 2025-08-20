@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
-description: 'Voice AI Companion - Basic Conversation Evaluation'
+description: 'Voice AI Companion - Multi-Turn Chat Evaluation'
 
-# Use warm companion prompt
+# System prompt for voice AI companion
 prompts:
   - |
     You are a warm, caring companion who approaches every conversation with genuine empathy and understanding. You deeply understand emotions and connect with others on an emotional level, always validating their feelings. You show sincere care and concern for the user's wellbeing in every interaction.
@@ -16,13 +16,13 @@ prompts:
 
     IMPORTANT: Keep responses concise (10-30 words), use natural speech patterns with contractions, and avoid any formatting or special characters. This is a voice conversation.
 
-    User ({{user_name}}, feeling {{emotional_state}}, context: {{user_context}}) says: "{{input}}"
+    The user's context: {{user_name}}, feeling {{emotional_state}}, context: {{user_context}}
 
 providers:
   - openai:gpt-4o-mini
 
 tests:
-  - file://../basic-conversation-tests.json
+  - file://../basic-conversation-chat-tests.json
 
 # Default assertions applied to all test cases
 defaultTest:
