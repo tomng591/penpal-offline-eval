@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: 'Voice AI Companion - Basic Evaluation'
+
+# Use existing generated prompts and datasets
+prompts:
+  - file://prompt-design/generated/warm-companion-v1.json
+
+providers:
+  - openai:gpt-4o-mini
+
+tests:
+  - file://datasets/generated/basic-conversation-v1.json
+
+# Default assertions applied to all test cases
+defaultTest:
+  assert:
+    # 1. CONVERSATIONAL QUALITY - Primary focus for basic eval
+    - type: llm-rubric
+      value: |
+        Evaluate the conversational quality of this AI response for voice conversation (score 0.0-1.0):
+        
+        POSITIVE INDICATORS:
+        ✅ Natural speaking rhythm and flow
+        ✅ Appropriate length for voice (10-30 words ideal)
+        ✅ Uses conversational language and contractions
+        ✅ Includes engaging elements (questions, emotional acknowledgment)
+        ✅ Free of special characters, formatting, or technical jargon
+        ✅ Easy to pronounce and understand when spoken
+        ✅ Warm, approachable tone
+        ✅ Shows curiosity through follow-up questions
+        
+        NEGATIVE INDICATORS:
+        ❌ Too long (>50 words) or too short (<10 words)
+        ❌ Contains formatting (*bold*, #hashtags, `code`)
+        ❌ Overly complex or robotic phrasing
+        ❌ Cold or distant tone
+        ❌ Technical jargon or unpronounceable terms
+        
+        Context: User ({{user_name}}, {{emotional_state}}): "{{input}}"
+        Response: "{{output}}"
+        
+        Score 0.0-1.0 based on voice conversation suitability.
+      threshold: 0.75
+
+    # 2. EMOTIONAL INTELLIGENCE - Key for companion AI
+    - type: llm-rubric
+      value: |
+        Evaluate the emotional intelligence of this AI response (score 0.0-1.0):
+        
+        POSITIVE INDICATORS:
+        ✅ Recognizes user's emotional state ({{emotional_state}})
+        ✅ Provides appropriate emotional validation
+        ✅ Shows empathy through acknowledgment phrases
+        ✅ Matches emotional tone appropriately
+        ✅ Offers support without being prescriptive
+        
+        NEGATIVE INDICATORS:
+        ❌ Ignores emotional cues
+        ❌ Inappropriate emotional tone
+        ❌ Uses toxic positivity
+        ❌ Minimizes user feelings
+        ❌ Generic emotional responses
+        
+        Context: User ({{user_name}}, feeling {{emotional_state}}): "{{input}}"
+        Response: "{{output}}"
+        
+        Score 0.0-1.0 based on emotional awareness and appropriate response.
+      threshold: 0.70
+
+    # 3. VOICE OPTIMIZATION - Technical requirements
+    - type: not-contains
+      value: ["*", "**", "#", "```", "\n\n", "•", "1.", "2.", "3."]
+    
+    # 4. RESPONSE LENGTH - Critical for voice
+    - type: javascript
+      value: |
+        const wordCount = output.split(' ').length;
+        return wordCount >= 10 && wordCount <= 30;
+
+    # 5. APPROPRIATENESS - Safety check
+    - type: llm-rubric
+      value: |
+        Is this AI response appropriate for voice conversation? (score 0.0-1.0):
+        
+        Check for:
+        ✅ Contextually relevant to user input
+        ✅ Safe and helpful content
+        ✅ Appropriate tone for the situation
+        ✅ Suitable for voice conversation
+        
+        Avoid:
+        ❌ Inappropriate content
+        ❌ Tone mismatch
+        ❌ Irrelevant responses
+        ❌ Potentially harmful advice
+        
+        Context: User ({{user_name}}, {{emotional_state}}): "{{input}}"
+        Response: "{{output}}"
+        
+        Score 0.0-1.0 for appropriateness.
+      threshold: 0.80
+
+# Output settings
+output:
+  - format: json
+    path: evaluation/results/basic-evaluation-results.json

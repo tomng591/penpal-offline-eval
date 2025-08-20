@@ -1,0 +1,1221 @@
+{
+  "version": "v1",
+  "scenario": "basic-conversation",
+  "timestamp": "2025-08-20T09:48:10.469Z",
+  "description": "General conversation skills, greetings, casual interactions",
+  "prompt_compatibility": [
+    "warm-companion-v1",
+    "warm-companion-v2"
+  ],
+  "tests": [
+    {
+      "description": "greeting: Initial greetings and introductions",
+      "vars": {
+        "user_name": "Alex",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "input": "Hello, how are you today?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "\n\n"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "greeting: Initial greetings and introductions",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "Hi there! Nice to meet you."
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "\n\n"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "greeting: Initial greetings and introductions",
+      "vars": {
+        "user_name": "Jordan",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "input": "Good morning! How's your day going so far?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "\n\n"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "greeting: Initial greetings and introductions",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "input": "Hey, what's up?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "\n\n"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "greeting: Initial greetings and introductions",
+      "vars": {
+        "user_name": "Riley",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "input": "Hello! I'm Riley, nice to meet you."
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "\n\n"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "greeting",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "question: Asking questions and showing curiosity",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "relaxed",
+        "user_context": "casual conversation",
+        "input": "What do you like to do for fun?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should show curiosity and ask engaging follow-up questions"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "?",
+            "what",
+            "how",
+            "tell me",
+            "curious"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "question",
+        "expected_scores": {
+          "conversational_quality": 0.85,
+          "personalization": 0.75,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "question: Asking questions and showing curiosity",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "Tell me something interesting about yourself."
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should show curiosity and ask engaging follow-up questions"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "?",
+            "what",
+            "how",
+            "tell me",
+            "curious"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "question",
+        "expected_scores": {
+          "conversational_quality": 0.85,
+          "personalization": 0.75,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "question: Asking questions and showing curiosity",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "What's your favorite type of music?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should show curiosity and ask engaging follow-up questions"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "?",
+            "what",
+            "how",
+            "tell me",
+            "curious"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "question",
+        "expected_scores": {
+          "conversational_quality": 0.85,
+          "personalization": 0.75,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "question: Asking questions and showing curiosity",
+      "vars": {
+        "user_name": "Alex",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "input": "How do you usually spend your weekends?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should show curiosity and ask engaging follow-up questions"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "?",
+            "what",
+            "how",
+            "tell me",
+            "curious"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "question",
+        "expected_scores": {
+          "conversational_quality": 0.85,
+          "personalization": 0.75,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "question: Asking questions and showing curiosity",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "What makes you happy?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should show curiosity and ask engaging follow-up questions"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "?",
+            "what",
+            "how",
+            "tell me",
+            "curious"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "question",
+        "expected_scores": {
+          "conversational_quality": 0.85,
+          "personalization": 0.75,
+          "emotional_intelligence": 0.75
+        }
+      }
+    },
+    {
+      "description": "followup: Building on previous conversation",
+      "vars": {
+        "user_name": "Jordan",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "input": "That's really interesting! Can you tell me more?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should build naturally on the conversation topic"
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "experience",
+            "feel",
+            "think",
+            "enjoy",
+            "like"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "followup",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "personalization": 0.8,
+          "helpfulness": 0.75
+        }
+      }
+    },
+    {
+      "description": "followup: Building on previous conversation",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "input": "I love that too! What got you into it?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should build naturally on the conversation topic"
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "experience",
+            "feel",
+            "think",
+            "enjoy",
+            "like"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "followup",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "personalization": 0.8,
+          "helpfulness": 0.75
+        }
+      }
+    },
+    {
+      "description": "followup: Building on previous conversation",
+      "vars": {
+        "user_name": "Riley",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "input": "That sounds fun. How long have you been doing that?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should build naturally on the conversation topic"
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "experience",
+            "feel",
+            "think",
+            "enjoy",
+            "like"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "followup",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "personalization": 0.8,
+          "helpfulness": 0.75
+        }
+      }
+    },
+    {
+      "description": "followup: Building on previous conversation",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "relaxed",
+        "user_context": "casual conversation",
+        "input": "Oh wow, I've never tried that before. What's it like?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should build naturally on the conversation topic"
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "experience",
+            "feel",
+            "think",
+            "enjoy",
+            "like"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "followup",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "personalization": 0.8,
+          "helpfulness": 0.75
+        }
+      }
+    },
+    {
+      "description": "followup: Building on previous conversation",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "That makes sense. How does that make you feel?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should build naturally on the conversation topic"
+        },
+        {
+          "type": "javascript",
+          "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "contains-any",
+          "value": [
+            "experience",
+            "feel",
+            "think",
+            "enjoy",
+            "like"
+          ]
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "followup",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "personalization": 0.8,
+          "helpfulness": 0.75
+        }
+      }
+    },
+    {
+      "description": "casual_chat: Light, easy conversation topics",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "It's such a beautiful day outside!"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be conversational and relate to the user's comment"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "however",
+            "furthermore"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.length > 0 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_chat",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.7
+        }
+      }
+    },
+    {
+      "description": "casual_chat: Light, easy conversation topics",
+      "vars": {
+        "user_name": "Alex",
+        "emotional_state": "happy",
+        "user_context": "returning user",
+        "input": "I'm having trouble deciding what to have for lunch."
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be conversational and relate to the user's comment"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "however",
+            "furthermore"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.length > 0 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_chat",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.7
+        }
+      }
+    },
+    {
+      "description": "casual_chat: Light, easy conversation topics",
+      "vars": {
+        "user_name": "Casey",
+        "emotional_state": "friendly",
+        "user_context": "first time user",
+        "input": "Do you have any recommendations for good movies?"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be conversational and relate to the user's comment"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "however",
+            "furthermore"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.length > 0 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_chat",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.7
+        }
+      }
+    },
+    {
+      "description": "casual_chat: Light, easy conversation topics",
+      "vars": {
+        "user_name": "Jordan",
+        "emotional_state": "tired",
+        "user_context": "getting to know each other",
+        "input": "I'm feeling pretty tired today."
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be conversational and relate to the user's comment"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "however",
+            "furthermore"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.length > 0 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_chat",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.7
+        }
+      }
+    },
+    {
+      "description": "casual_chat: Light, easy conversation topics",
+      "vars": {
+        "user_name": "Sarah",
+        "emotional_state": "tired",
+        "user_context": "casual conversation",
+        "input": "The weekend can't come soon enough!"
+      },
+      "assert": [
+        {
+          "type": "llm-rubric",
+          "value": "Response should be conversational and relate to the user's comment"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "#",
+            "**",
+            "```",
+            "however",
+            "furthermore"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "output.length > 0 && output.split(' ').length <= 30"
+        },
+        {
+          "type": "not-contains",
+          "value": [
+            "*",
+            "**",
+            "#",
+            "```",
+            "1.",
+            "2.",
+            "•"
+          ]
+        },
+        {
+          "type": "javascript",
+          "value": "!output.includes('\\n\\n')"
+        },
+        {
+          "type": "llm-rubric",
+          "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+        }
+      ],
+      "metadata": {
+        "scenario": "basic-conversation",
+        "category": "casual_chat",
+        "expected_scores": {
+          "conversational_quality": 0.8,
+          "appropriateness": 0.85,
+          "emotional_intelligence": 0.7
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "total_tests": 20,
+    "categories": [
+      "greeting",
+      "question",
+      "followup",
+      "casual_chat"
+    ],
+    "required_variables": [
+      "user_name",
+      "emotional_state",
+      "user_context"
+    ],
+    "evaluation_focus": [
+      "conversational_quality",
+      "appropriateness",
+      "emotional_intelligence"
+    ]
+  }
+}

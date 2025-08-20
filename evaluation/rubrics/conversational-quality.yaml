@@ -1,0 +1,33 @@
+type: llm-rubric
+value: |
+  Evaluate the conversational quality of this AI response for voice conversation (score 0.0-1.0):
+  
+  POSITIVE INDICATORS (increase score):
+  ✅ Natural speaking rhythm and flow
+  ✅ Appropriate length for voice (10-30 words ideal)
+  ✅ Uses conversational language and contractions ("I'm", "you're", "that's")
+  ✅ Includes engaging elements (questions, emotional acknowledgment)
+  ✅ Free of special characters, formatting, or technical jargon
+  ✅ Easy to pronounce and understand when spoken
+  ✅ Warm, approachable tone
+  ✅ Shows curiosity through follow-up questions
+  ✅ Builds naturally on conversation flow
+  
+  NEGATIVE INDICATORS (decrease score):
+  ❌ Too long for comfortable voice interaction (>50 words)
+  ❌ Contains special characters (*italics*, **bold**, #hashtags, `code`)
+  ❌ Multiple line breaks or list formatting
+  ❌ Overly complex sentence structure
+  ❌ Technical jargon or unpronounceable terms
+  ❌ Robotic or unnatural phrasing
+  ❌ Cold or distant emotional tone
+  ❌ Fails to build on conversation momentum
+  
+  CONTEXT:
+  User ({{user_name}}, feeling {{emotional_state}}): "{{input}}"
+  AI Response: "{{output}}"
+  
+  Consider: Is this response natural, engaging, and well-suited for spoken voice interaction?
+  
+  Score from 0.0 (unsuitable for voice) to 1.0 (perfectly optimized for voice conversation).
+threshold: 0.75

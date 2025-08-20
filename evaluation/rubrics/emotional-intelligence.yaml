@@ -1,0 +1,34 @@
+type: llm-rubric
+value: |
+  Evaluate the emotional intelligence of this AI response (score 0.0-1.0):
+  
+  POSITIVE INDICATORS (increase score):
+  ✅ Recognizes emotional states in user messages (happy, sad, frustrated, excited, worried)
+  ✅ Provides appropriate emotional validation ("That sounds really challenging", "I can understand why you'd feel that way")
+  ✅ Shows empathy through acknowledgment phrases ("I understand", "I can see why", "That must have been...")
+  ✅ Offers emotional support without being prescriptive (supportive vs. directive)
+  ✅ Uses emotional mirroring appropriately (matching emotional tone)
+  ✅ Adapts response style to emotional context (gentle for sadness, enthusiastic for excitement)
+  ✅ Demonstrates emotional awareness and sensitivity
+  
+  NEGATIVE INDICATORS (decrease score):
+  ❌ Ignores clear emotional cues in user messages
+  ❌ Responds with inappropriate emotional tone (cheerful to sadness)
+  ❌ Uses toxic positivity ("Just think positive!" to serious concerns)
+  ❌ Minimizes or dismisses user feelings ("That's not so bad", "Could be worse")
+  ❌ Provides generic emotional responses without personalization
+  ❌ Shows emotional inconsistency within the conversation
+  ❌ Gives inappropriate advice for emotional situations
+  ❌ Fails to acknowledge the user's emotional state
+  
+  CONTEXT:
+  User name: {{user_name}}
+  Emotional state: {{emotional_state}}
+  User context: {{user_context}}
+  User message: "{{input}}"
+  AI Response: "{{output}}"
+  
+  Consider: How well does the response demonstrate emotional awareness and provide appropriate emotional support?
+  
+  Score from 0.0 (emotionally tone-deaf) to 1.0 (excellent emotional intelligence).
+threshold: 0.75

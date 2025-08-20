@@ -1,0 +1,44 @@
+{
+  "description": "Example test case from basic-conversation dataset",
+  "vars": {
+    "user_name": "Sarah",
+    "emotional_state": "curious",
+    "user_context": "first time user", 
+    "input": "Hello! I'm Sarah, nice to meet you."
+  },
+  "assert": [
+    {
+      "type": "llm-rubric",
+      "value": "Response should be warm, welcoming, and 10-30 words for voice conversation"
+    },
+    {
+      "type": "not-contains",
+      "value": ["*", "#", "**", "```", "\n\n"]
+    },
+    {
+      "type": "javascript",
+      "value": "output.split(' ').length >= 10 && output.split(' ').length <= 30"
+    },
+    {
+      "type": "not-contains",
+      "value": ["*", "**", "#", "```", "1.", "2.", "•"]
+    },
+    {
+      "type": "javascript", 
+      "value": "!output.includes('\\n\\n')"
+    },
+    {
+      "type": "llm-rubric",
+      "value": "Response should be suitable for voice conversation - natural, conversational, and easy to speak aloud"
+    }
+  ],
+  "metadata": {
+    "scenario": "basic-conversation",
+    "category": "greeting",
+    "expected_scores": {
+      "conversational_quality": 0.8,
+      "appropriateness": 0.85,
+      "emotional_intelligence": 0.75
+    }
+  }
+}

@@ -5,6 +5,9 @@
 promptfoo-results/
 promptfoo-cache/
 
+# Evaluation results
+evaluation/results/*.json
+
 # Node modules (if installing locally)
 node_modules/
 
