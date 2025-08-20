@@ -56,7 +56,7 @@ class EvaluationRunner {
     console.log(`📍 Configuration: ${configPath}`);
     console.log(`💾 Output: ${outputFile}`);
 
-    let command = `npx promptfoo eval -c "${configPath}" --output json`;
+    let command = `npx promptfoo eval -c "${configPath}"`;
     
     // Add optional parameters
     if (options.verbose) command += ' --verbose';
@@ -104,25 +104,22 @@ class EvaluationRunner {
         }
 
         try {
-          // Parse results from stdout
-          const jsonMatch = stdout.match(/\{[\s\S]*\}/);
-          if (!jsonMatch) {
-            throw new Error('No JSON output found in evaluation results');
-          }
-
-          const results = JSON.parse(jsonMatch[0]);
-          
-          // Save results to file
-          fs.writeFileSync(outputFile, JSON.stringify(results, null, 2));
-          
-          // Analyze and display results
-          this.analyzeResults(results, configName);
-          
+          // For now, just indicate success and show how to view results
           console.log(`\n✅ Evaluation complete!`);
-          console.log(`📊 Results saved to: ${outputFile}`);
-          console.log(`🌐 View detailed results: npx promptfoo view`);
-
-          resolve({ results, outputFile });
+          console.log(`📊 View results: npx promptfoo view`);
+          console.log(`📁 Results are stored in promptfoo's internal database`);
+          
+          // Create a simple success indicator file
+          const successIndicator = {
+            timestamp: new Date().toISOString(),
+            configName,
+            status: 'completed',
+            message: 'Evaluation completed successfully. Use "npx promptfoo view" to see detailed results.'
+          };
+          
+          fs.writeFileSync(outputFile, JSON.stringify(successIndicator, null, 2));
+          
+          resolve({ outputFile, status: 'completed' });
         } catch (error) {
           console.error('❌ Error processing results:', error.message);
           console.log('Raw stdout:', stdout);
@@ -132,6 +129,8 @@ class EvaluationRunner {
     });
   }
 
+  // Commented out for now - analysis will be done through promptfoo view
+  /*
   analyzeResults(results, configName) {
     console.log(`\n📊 EVALUATION SUMMARY: ${configName.toUpperCase()}`);
     console.log('=' .repeat(50));
@@ -201,6 +200,7 @@ class EvaluationRunner {
       console.log(`🏆 Quality Rating: ${quality}`);
     }
   }
+  */
 
   showUsage() {
     console.log('Usage:');

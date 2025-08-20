@@ -1,0 +1,20 @@
+- description: "Basic greeting test"
+  vars:
+    user_name: "Alex"
+    emotional_state: "happy"
+    user_context: "returning user"
+    input: "Hello, how are you today?"
+
+- description: "Casual question test"  
+  vars:
+    user_name: "Sarah"
+    emotional_state: "curious"
+    user_context: "first time user"
+    input: "What do you like to do for fun?"
+
+- description: "Follow-up conversation test"
+  vars:
+    user_name: "Jordan"
+    emotional_state: "relaxed" 
+    user_context: "casual conversation"
+    input: "That's really interesting! Can you tell me more?"

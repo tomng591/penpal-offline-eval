@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
-description: 'Voice AI Companion - Basic Evaluation'
+description: 'Voice AI Companion - Basic Conversation Evaluation'
 
-# Use existing generated prompts and datasets - extract prompt text
+# Use warm companion prompt
 prompts:
   - |
     You are a warm, caring companion who approaches every conversation with genuine empathy and understanding. You deeply understand emotions and connect with others on an emotional level, always validating their feelings. You show sincere care and concern for the user's wellbeing in every interaction.
@@ -22,12 +22,12 @@ providers:
   - openai:gpt-4o-mini
 
 tests:
-  - file://../test-cases.yaml
+  - file://../basic-conversation-tests.json
 
 # Default assertions applied to all test cases
 defaultTest:
   assert:
-    # 1. CONVERSATIONAL QUALITY - Primary focus for basic eval
+    # 1. CONVERSATIONAL QUALITY - Primary focus
     - type: llm-rubric
       value: |
         Evaluate the conversational quality of this AI response for voice conversation (score 0.0-1.0):
@@ -120,4 +120,3 @@ defaultTest:
         
         Score 0.0-1.0 for appropriateness.
       threshold: 0.80
-

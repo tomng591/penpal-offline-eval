@@ -1,0 +1,7 @@
+description: 'Custom Evaluation'
+prompts:
+  - file://prompt-design/generated/warm-companion-v1.json
+providers:
+  - openai:gpt-4o-mini
+tests:
+  - file://datasets/generated/basic-conversation-v1.json

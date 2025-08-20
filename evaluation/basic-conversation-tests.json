@@ -1,0 +1,182 @@
+[
+  {
+    "description": "greeting: Initial greetings and introductions",
+    "vars": {
+      "user_name": "Alex",
+      "emotional_state": "happy",
+      "user_context": "returning user",
+      "input": "Hello, how are you today?"
+    }
+  },
+  {
+    "description": "greeting: Initial greetings and introductions",
+    "vars": {
+      "user_name": "Casey",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "Hi there! Nice to meet you."
+    }
+  },
+  {
+    "description": "greeting: Initial greetings and introductions",
+    "vars": {
+      "user_name": "Jordan",
+      "emotional_state": "tired",
+      "user_context": "getting to know each other",
+      "input": "Good morning! How's your day going so far?"
+    }
+  },
+  {
+    "description": "greeting: Initial greetings and introductions",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "tired",
+      "user_context": "casual conversation",
+      "input": "Hey, what's up?"
+    }
+  },
+  {
+    "description": "greeting: Initial greetings and introductions",
+    "vars": {
+      "user_name": "Riley",
+      "emotional_state": "tired",
+      "user_context": "getting to know each other",
+      "input": "Hello! I'm Riley, nice to meet you."
+    }
+  },
+  {
+    "description": "question: Asking questions and showing curiosity",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "relaxed",
+      "user_context": "casual conversation",
+      "input": "What do you like to do for fun?"
+    }
+  },
+  {
+    "description": "question: Asking questions and showing curiosity",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "Tell me something interesting about yourself."
+    }
+  },
+  {
+    "description": "question: Asking questions and showing curiosity",
+    "vars": {
+      "user_name": "Casey",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "What's your favorite type of music?"
+    }
+  },
+  {
+    "description": "question: Asking questions and showing curiosity",
+    "vars": {
+      "user_name": "Alex",
+      "emotional_state": "happy",
+      "user_context": "returning user",
+      "input": "How do you usually spend your weekends?"
+    }
+  },
+  {
+    "description": "question: Asking questions and showing curiosity",
+    "vars": {
+      "user_name": "Casey",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "What makes you happy?"
+    }
+  },
+  {
+    "description": "followup: Building on previous conversation",
+    "vars": {
+      "user_name": "Jordan",
+      "emotional_state": "tired",
+      "user_context": "getting to know each other",
+      "input": "That's really interesting! Can you tell me more?"
+    }
+  },
+  {
+    "description": "followup: Building on previous conversation",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "tired",
+      "user_context": "casual conversation",
+      "input": "I love that too! What got you into it?"
+    }
+  },
+  {
+    "description": "followup: Building on previous conversation",
+    "vars": {
+      "user_name": "Riley",
+      "emotional_state": "tired",
+      "user_context": "getting to know each other",
+      "input": "That sounds fun. How long have you been doing that?"
+    }
+  },
+  {
+    "description": "followup: Building on previous conversation",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "relaxed",
+      "user_context": "casual conversation",
+      "input": "Oh wow, I've never tried that before. What's it like?"
+    }
+  },
+  {
+    "description": "followup: Building on previous conversation",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "That makes sense. How does that make you feel?"
+    }
+  },
+  {
+    "description": "casual_chat: Light, easy conversation topics",
+    "vars": {
+      "user_name": "Casey",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "It's such a beautiful day outside!"
+    }
+  },
+  {
+    "description": "casual_chat: Light, easy conversation topics",
+    "vars": {
+      "user_name": "Alex",
+      "emotional_state": "happy",
+      "user_context": "returning user",
+      "input": "I'm having trouble deciding what to have for lunch."
+    }
+  },
+  {
+    "description": "casual_chat: Light, easy conversation topics",
+    "vars": {
+      "user_name": "Casey",
+      "emotional_state": "friendly",
+      "user_context": "first time user",
+      "input": "Do you have any recommendations for good movies?"
+    }
+  },
+  {
+    "description": "casual_chat: Light, easy conversation topics",
+    "vars": {
+      "user_name": "Jordan",
+      "emotional_state": "tired",
+      "user_context": "getting to know each other",
+      "input": "I'm feeling pretty tired today."
+    }
+  },
+  {
+    "description": "casual_chat: Light, easy conversation topics",
+    "vars": {
+      "user_name": "Sarah",
+      "emotional_state": "tired",
+      "user_context": "casual conversation",
+      "input": "The weekend can't come soon enough!"
+    }
+  }
+]
